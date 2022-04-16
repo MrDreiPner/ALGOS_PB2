@@ -18,12 +18,13 @@ LinkedList::LinkedList() {
         cout << "File opened!";
     }*/
     int integer;
-    //file >> integer;
-    //head = append(head, integer);
+    file >> integer;
+    //cout << integer << endl;
+    head = append(head, integer);
     while (file >> integer)
     {
-        cout << integer << endl;
-        //head = append(head, integer);
+        //cout << integer << endl;
+        append(head, integer);
     }
     file.close();
     //print(head);
@@ -33,23 +34,38 @@ LinkedList::~LinkedList() {
     cout << "Tree deleted";
 }
 
-node* LinkedList::append(struct node* prevNode, int value) {
-    node* newNode = new node;
-    newNode->keyValue = value;
-    newNode->leftBranch = NULL;
-    newNode->rightBranch = NULL;
-
-    if (prevNode == NULL) {
+node* LinkedList::append(struct node* head, int value) {
+    node* current = head;
+    node* prev = NULL;
+    if (head == NULL) {
+        cout << value << endl;
+        node* newNode = createNode(value);
         return newNode;
     }
-    if (value == prevNode->keyValue) {
-        return NULL;
-    }
-    else if (value < prevNode->keyValue) {
-        prevNode->leftBranch = append(prevNode, value);
-    }
-    else {
-        prevNode->rightBranch = append(prevNode, value);
+    while (current != NULL) {
+        if (value == current->keyValue) {
+            break;
+        }
+        else if (value < current->keyValue) {
+            prev = current;
+            current = current->leftBranch;
+            if (current == NULL) {
+                cout << value << endl;
+                node* newNode = createNode(value);
+                prev->leftBranch = newNode;
+                return head;
+            }
+        }
+        else {
+            prev = current;
+            current = current->rightBranch;
+            if (current == NULL) {
+                cout << value << endl;
+                node* newNode = createNode(value);
+                prev->rightBranch = newNode;
+                return head;
+            }
+        }
     }
 }
 
@@ -79,4 +95,12 @@ void LinkedList::print(node* head) {
         prevNode = current;
         current = current->rightBranch;
     }
+}
+
+node* LinkedList::createNode(int value) {
+    node* newNode = new node;
+    newNode->keyValue = value;
+    newNode->leftBranch = NULL;
+    newNode->rightBranch = NULL;
+    return newNode;
 }

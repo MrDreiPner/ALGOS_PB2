@@ -13,8 +13,9 @@ class LinkedList
 public:
 	LinkedList();
 	virtual ~LinkedList();
-	node* append(struct node* prevNode, int value);
+	node* append(struct node* head, int value);
 	void print(node* head);
+	node* createNode(int value);
 
 };
 
