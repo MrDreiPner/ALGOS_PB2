@@ -2,8 +2,13 @@
 //
 
 #include <iostream>
+#include <fstream>
+#include "LinkedList.h"
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	LinkedList* Tree = new LinkedList;
+	delete(Tree);
 }
