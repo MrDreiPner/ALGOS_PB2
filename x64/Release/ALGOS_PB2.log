@@ -1,7 +1,7 @@
 ﻿  LinkedList.cpp
   Generating code
-C:\Users\porub\OneDrive\Dokumente\Visual Studio 2022\ALGOS_Programmierbsp\ALGOS_PB2\LinkedList.cpp(70): warning C4715: 'LinkedList::append': not all control paths return a value
-  5 of 147 functions ( 3.4%) were compiled, the rest were copied from previous compilation.
+C:\Users\porub\OneDrive\Dokumente\Visual Studio 2022\ALGOS_Programmierbsp\ALGOS_PB2\LinkedList.cpp(79): warning C4715: 'LinkedList::append': not all control paths return a value
+  2 of 147 functions ( 1.4%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code

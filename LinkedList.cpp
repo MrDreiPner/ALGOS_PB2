@@ -37,20 +37,27 @@ LinkedList::~LinkedList() {
 node* LinkedList::append(struct node* head, int value) {
     node* current = head;
     node* prev = NULL;
+    int left = 0;
+    int right = 0;
+    int depth = 0;
     if (head == NULL) {
-        cout << value << endl;
+        cout << "Root depth: 0 | Value: " << value << endl;
         node* newNode = createNode(value);
         return newNode;
     }
     while (current != NULL) {
+        ++depth;
         if (value == current->keyValue) {
+            cout << " FAIL! Duplicate found -> Value: " << value << " has been dropped!" << endl;
             break;
         }
         else if (value < current->keyValue) {
             prev = current;
             current = current->leftBranch;
+            cout << "L->";
+            ++left;
             if (current == NULL) {
-                cout << value << endl;
+                cout << " Done! --> Right depth: " << right << " | Left Depth: " << left << " | Overall Depth: " << depth << " | Value: " << value << endl;
                 node* newNode = createNode(value);
                 prev->leftBranch = newNode;
                 return head;
@@ -59,8 +66,10 @@ node* LinkedList::append(struct node* head, int value) {
         else {
             prev = current;
             current = current->rightBranch;
+            cout << "R->";
+            ++right;
             if (current == NULL) {
-                cout << value << endl;
+                cout << " Done! --> Right depth: " << right << " | Left Depth: " << left << " | Overall Depth: " << depth << " | Value: " << value << endl;
                 node* newNode = createNode(value);
                 prev->rightBranch = newNode;
                 return head;
