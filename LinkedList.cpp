@@ -30,6 +30,7 @@ LinkedList::LinkedList(char* passedFileName) {
         append(head, value);
     }
     file.close();
+
 }
 
 LinkedList::~LinkedList() {
@@ -122,4 +123,8 @@ node* LinkedList::createNode(int value) {
     newNode->leftBranch = NULL;
     newNode->rightBranch = NULL;
     return newNode;
+}
+
+void LinkedList::checkBalance(node* knoten) {
+    //rekursiv checking of balance
 }

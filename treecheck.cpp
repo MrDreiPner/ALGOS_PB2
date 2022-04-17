@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
+#include <conio.h>
 #include "LinkedList.h"
 
 using namespace std;
@@ -16,8 +17,9 @@ int main(int argc, char* argv[])
 		cout << argv[i] << "\n";
 				//Creation of tree
 	LinkedList* Tree = new LinkedList(argv[1]);
-
-
+	cout << "\nPress any key to continue...";
+	char input = _getch();
+	system("cls");
 
 	delete(Tree);
 }

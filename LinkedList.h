@@ -17,6 +17,7 @@ public:
 	node* append(struct node* head, int value);
 	void print();
 	node* createNode(int value);
+	void checkBalance(node* knoten);
 
 	node* getListHead() { return listHead; };
 	
