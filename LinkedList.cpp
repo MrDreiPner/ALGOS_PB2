@@ -42,14 +42,16 @@ node* LinkedList::append(struct node* head, int value) {
     int left = 0;
     int right = 0;
     int depth = 0;
+    int steps = 0;
+    std::cout << "Value: " << value << " | ";
                 //Root creation
     if (head == NULL) {
-        std::cout << "Root depth: 0 | Value: " << value << endl;
+        std::cout << "Root depth: 0" << endl;
         node* newNode = createNode(value);
         return newNode;
     }
     while (current != NULL) {
-        ++depth;
+        ++steps;
                 //Throwing away value if already present in tree.
         if (value == current->keyValue) {
             std::cout << " FAIL! Duplicate found -> Value: " << value << " has been dropped!" << endl;
@@ -60,9 +62,10 @@ node* LinkedList::append(struct node* head, int value) {
             prev = current;
             current = current->leftBranch;
             std::cout << "L->";
+            ++depth;
             ++left;
             if (current == NULL) {
-                std::cout << " Done! --> Right depth: " << right << " | Left Depth: " << left << " | Overall Depth: " << depth << " | Value: " << value << endl;
+                std::cout << " Done! --> Right depth: " << right << " | Left Depth: " << left << " | Overall Steps: " << steps << " | Depth: " << depth << endl;
                 node* newNode = createNode(value);
                 prev->leftBranch = newNode;
                 return head;
@@ -72,9 +75,10 @@ node* LinkedList::append(struct node* head, int value) {
             prev = current;
             current = current->rightBranch;
             std::cout << "R->";
+            ++depth;
             ++right;
             if (current == NULL) {
-                std::cout << " Done! --> Right depth: " << right << " | Left Depth: " << left << " | Overall Depth: " << depth << " | Value: " << value << endl;
+                std::cout << " Done! --> Right depth: " << right << " | Left Depth: " << left << " | Overall Steps: " << steps << " | Depth: " << depth << endl;
                 node* newNode = createNode(value);
                 prev->rightBranch = newNode;
                 return head;
