@@ -11,11 +11,16 @@ struct node {
 class LinkedList
 {
 public:
-	LinkedList();
+	LinkedList(char* passedFileName);
 	virtual ~LinkedList();
 	node* append(struct node* head, int value);
-	void print(node* head);
+	void print();
 	node* createNode(int value);
+
+	node* getListHead() { return listHead; };
+	
+private:
+	node* listHead;
 
 };
 
