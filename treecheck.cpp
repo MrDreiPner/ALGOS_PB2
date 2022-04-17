@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <string.h>
 #include "LinkedList.h"
 
 using namespace std;
