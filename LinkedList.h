@@ -19,6 +19,9 @@ public:
 	node* createNode(int value);
 	void checkBalance(node* knoten);
 	void checkChild(node* knoten, int& topDepth);
+	void traverseInOrder(node* current);
+	void search(LinkedList* subtree);
+	void visit(node* current);
 
 	node* getListHead() { return listHead; };
 	

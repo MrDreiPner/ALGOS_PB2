@@ -171,3 +171,19 @@ void LinkedList::checkChild(node* knoten, int& topDepth) {
     }
     return;
 }
+
+void LinkedList::traverseInOrder(node* current) {
+    if (current != NULL) {
+        traverseInOrder(current->leftBranch);
+        visit(current);
+        traverseInOrder(current->rightBranch);
+    }
+}
+
+
+void LinkedList::search(LinkedList* subtree) {
+}
+
+void LinkedList::visit(node* current) {
+    cout << current->keyValue << " " << endl;
+}
