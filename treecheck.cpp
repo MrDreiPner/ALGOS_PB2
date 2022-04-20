@@ -23,7 +23,8 @@ int main(int argc, char* argv[])
 	Tree->checkBalance(Tree->getListHead());
 	if (argc > 2) {
 		LinkedList* subtree = new LinkedList(argv[2]);
-
+		Tree->subtreeSearch(subtree->getListHead(), Tree->getListHead());
+		delete(subtree);
 	}
 	delete(Tree);
 }

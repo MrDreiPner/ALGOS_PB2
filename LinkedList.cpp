@@ -88,7 +88,7 @@ node* LinkedList::append(struct node* head, int value) {
     }
 }
 
-void LinkedList::print() {
+/*void LinkedList::print() {
     system("cls");
     node* current = listHead;
     node* prevNode = NULL;
@@ -115,7 +115,7 @@ void LinkedList::print() {
         prevNode = current;
         current = current->rightBranch;
     }
-}
+}*/
 
 node* LinkedList::createNode(int value) {
     node* newNode = new node;
@@ -180,14 +180,14 @@ void LinkedList::traverseInOrder(node* current) {
     }
 }
 
-void LinkedList::singleNodeSearch(LinkedList* subtree, node* current){
-    node* sub = subtree->listHead;
+void LinkedList::singleNodeSearch(node* subtree, node* current){
+    node* sub = subtree;
     if (sub->leftBranch != NULL || sub->rightBranch != NULL) {
         return;
     }
     if (current != NULL) {
         if (checkNode(current, sub) == false) {
-            sub->keyValue < current->keyValue ? singleNodeSearch(subtree, current->leftBranch) : singleNodeSearch(subtree, current->rightBranch);
+            sub->keyValue < current->keyValue ? singleNodeSearch(sub, current->leftBranch) : singleNodeSearch(sub, current->rightBranch);
         }
         else {
             cout << "Subtree found!" << endl;
@@ -204,11 +204,11 @@ bool LinkedList::checkNode(node* prime, node* sub){
     return false;
 }
 
-void LinkedList::subtreeSearch(LinkedList* subtree, node* current){
-    node* sub = subtree->listHead;
+void LinkedList::subtreeSearch(node* subtree, node* current){
+    node* sub = subtree;
     if (current != NULL) {
         if (checkNode(current, sub) == false) {
-            sub->keyValue < current->keyValue ? singleNodeSearch(subtree, current->leftBranch) : singleNodeSearch(subtree, current->rightBranch);
+            sub->keyValue < current->keyValue ? singleNodeSearch(sub, current->leftBranch) : singleNodeSearch(sub, current->rightBranch);
         }
         else {
             cout << "Subtree found!" << endl;
