@@ -21,6 +21,9 @@ int main(int argc, char* argv[])
 	char input = _getch();
 	system("cls");
 	Tree->checkBalance(Tree->getListHead());
+	if (argc > 2) {
+		LinkedList* subtree = new LinkedList(argv[2]);
 
+	}
 	delete(Tree);
 }

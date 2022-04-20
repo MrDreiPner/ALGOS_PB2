@@ -175,15 +175,46 @@ void LinkedList::checkChild(node* knoten, int& topDepth) {
 void LinkedList::traverseInOrder(node* current) {
     if (current != NULL) {
         traverseInOrder(current->leftBranch);
-        visit(current);
+        //visit(current);
         traverseInOrder(current->rightBranch);
     }
 }
 
-
-void LinkedList::search(LinkedList* subtree) {
+void LinkedList::singleNodeSearch(LinkedList* subtree, node* current){
+    node* sub = subtree->listHead;
+    if (sub->leftBranch != NULL || sub->rightBranch != NULL) {
+        return;
+    }
+    if (current != NULL) {
+        if (checkNode(current, sub) == false) {
+            sub->keyValue < current->keyValue ? singleNodeSearch(subtree, current->leftBranch) : singleNodeSearch(subtree, current->rightBranch);
+        }
+        else {
+            cout << "Subtree found!" << endl;
+            return;
+        }
+        cout << "Subtree not found!" << endl;
+    }
 }
 
-void LinkedList::visit(node* current) {
-    cout << current->keyValue << " " << endl;
+bool LinkedList::checkNode(node* prime, node* sub){
+    if (prime->keyValue == sub->keyValue) {
+        return true;
+    }
+    return false;
 }
+
+void LinkedList::subtreeSearch(LinkedList* subtree, node* current){
+    node* sub = subtree->listHead;
+    if (current != NULL) {
+        if (checkNode(current, sub) == false) {
+            sub->keyValue < current->keyValue ? singleNodeSearch(subtree, current->leftBranch) : singleNodeSearch(subtree, current->rightBranch);
+        }
+        else {
+            cout << "Subtree found!" << endl;
+            return;
+        }
+        cout << "Subtree not found!" << endl;
+    }
+}
+
