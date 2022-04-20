@@ -130,7 +130,7 @@ void LinkedList::checkBalance(node* knoten) {
     int leftDepth = 0;
     int rightDepth = 0;
     int knotenValue = knoten->keyValue;
-    cout << knotenValue << endl;
+    cout << "Node " << knotenValue << " is getting checked." << endl;
     node* leftCurrent = knoten->leftBranch;
     node* rightCurrent = knoten->rightBranch;
     if (leftCurrent != NULL) {
@@ -148,7 +148,7 @@ void LinkedList::checkBalance(node* knoten) {
     }
     int diff = rightDepth - leftDepth;
     if (diff <= 1 && diff >= -1) {
-        cout << "Node " << knotenValue << " is AVL balanced! Balance value = " << diff << endl;
+        cout << "Node " << knotenValue << " is AVL balanced... as all things should be. Balance value = " << diff << endl;
     }
     else {
         cout << "Node " << knotenValue << " is NOT AVL balanced! Balance value = " << diff << endl;

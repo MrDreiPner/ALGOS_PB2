@@ -19,10 +19,7 @@ int main(int argc, char* argv[])
 	LinkedList* Tree = new LinkedList(argv[1]);
 	cout << "\nPress any key to continue..." << endl;
 	char input = _getch();
-	node* test = Tree->getListHead();
-	cout << "Das ist der Head " << test->keyValue;
-	cout << "\nPress any key to continue..." << endl;
-	input = _getch();
+	system("cls");
 	Tree->checkBalance(Tree->getListHead());
 
 	delete(Tree);
