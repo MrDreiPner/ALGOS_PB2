@@ -190,10 +190,12 @@ void LinkedList::singleNodeSearch(node* subtree, node* current){
             sub->keyValue < current->keyValue ? singleNodeSearch(sub, current->leftBranch) : singleNodeSearch(sub, current->rightBranch);
         }
         else {
-            cout << "Subtree found!" << endl;
+            current = this->listHead;
+            cout << sub->keyValue << " found ";
+            traverse(sub->keyValue, current);
             return;
         }
-        cout << "Subtree not found!" << endl;
+        //cout << "Subtree not found!" << endl;
     }
 }
 
@@ -215,6 +217,16 @@ void LinkedList::subtreeSearch(node* subtree, node* current){
             return;
         }
         cout << "Subtree not found!" << endl;
+    }
+}
+
+void LinkedList::traverse(int keyValue, node* current){
+    if (current != NULL) {
+        cout << current->keyValue << " ";
+        if (current->keyValue == keyValue) {
+            return;
+        }
+        (current->keyValue > keyValue) ? traverse(keyValue, current->rightBranch) : traverse(keyValue, current->leftBranch);
     }
 }
 

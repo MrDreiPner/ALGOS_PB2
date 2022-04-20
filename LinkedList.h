@@ -23,6 +23,7 @@ public:
 	void singleNodeSearch(node* subtree, node* current);
 	bool checkNode(node* prime, node* sub);
 	void subtreeSearch(node* subtree, node* current);
+	void traverse(int keyValue, node* current);
 	node* getListHead() { return listHead; };
 
 private:
