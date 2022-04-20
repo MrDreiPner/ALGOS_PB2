@@ -1,9 +1,8 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: The intermediate directory (x64\Release\) contains files shared from another project (ALGOS_PB2.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  treecheck.cpp
   LinkedList.cpp
   Generating code
-  Previous IPDB was built with incompatible compiler, fall back to full compilation.
-C:\Users\patri\Desktop\Technikum\2.Sem\Algorithmen\ALGOS_PB2\LinkedList.cpp(89): warning C4715: 'LinkedList::append': not all control paths return a value
-  All 542 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  3 of 544 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   ALGOS_PB2.vcxproj -> C:\Users\patri\Desktop\Technikum\2.Sem\Algorithmen\ALGOS_PB2\x64\Release\treecheck.exe

@@ -193,10 +193,11 @@ void LinkedList::singleNodeSearch(node* subtree, node* current){
             current = this->listHead;
             cout << sub->keyValue << " found ";
             traverse(sub->keyValue, current);
+            cout << "\n";
             return;
         }
-        //cout << "Subtree not found!" << endl;
     }
+    else { cout << sub->keyValue << " not found!" << endl; }
 }
 
 bool LinkedList::checkNode(node* prime, node* sub){
@@ -206,27 +207,42 @@ bool LinkedList::checkNode(node* prime, node* sub){
     return false;
 }
 
-void LinkedList::subtreeSearch(node* subtree, node* current){
+void LinkedList::subtreeSearch(node* subtree, node* current) {
     node* sub = subtree;
-    if (current != NULL) {
-        if (checkNode(current, sub) == false) {
-            sub->keyValue < current->keyValue ? singleNodeSearch(sub, current->leftBranch) : singleNodeSearch(sub, current->rightBranch);
+    node* newRoot = current;
+    while (newRoot != NULL) {
+        if (checkNode(newRoot, sub) == false) {
+            sub->keyValue < newRoot->keyValue ? newRoot = newRoot->leftBranch : newRoot = newRoot->rightBranch;
         }
-        else {
-            cout << "Subtree found!" << endl;
+        else if (checkNode(newRoot, sub) == true) { break; }
+        /*else {
+            cout << "Subtree not found!" << endl;
             return;
-        }
+        }*/
+    }
+    if (newRoot == NULL) {
         cout << "Subtree not found!" << endl;
+        return;
+    }
+    if (sub->leftBranch != NULL && newRoot->leftBranch != NULL) {
+        subtreeSearch(sub->leftBranch, newRoot->leftBranch);
+    }
+    else if (sub->rightBranch != NULL && newRoot->rightBranch != NULL) {
+        subtreeSearch(sub->rightBranch, newRoot->rightBranch);
+    }
+    else {
+        cout << "Subtree found" << endl;
     }
 }
 
-void LinkedList::traverse(int keyValue, node* current){
+    
+    void LinkedList::traverse(int num, node* current){
     if (current != NULL) {
         cout << current->keyValue << " ";
-        if (current->keyValue == keyValue) {
+        if (current->keyValue == num) {
             return;
         }
-        (current->keyValue > keyValue) ? traverse(keyValue, current->rightBranch) : traverse(keyValue, current->leftBranch);
+        (current->keyValue > num) ? traverse(num, current->leftBranch) : traverse(num, current->rightBranch);
     }
 }
 
