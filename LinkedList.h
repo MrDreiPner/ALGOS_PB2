@@ -18,6 +18,7 @@ public:
 	void print();
 	node* createNode(int value);
 	void checkBalance(node* knoten);
+	void checkChild(node* knoten, int& topDepth);
 
 	node* getListHead() { return listHead; };
 	

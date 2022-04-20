@@ -17,9 +17,13 @@ int main(int argc, char* argv[])
 		cout << argv[i] << "\n";
 				//Creation of tree
 	LinkedList* Tree = new LinkedList(argv[1]);
-	cout << "\nPress any key to continue...";
+	cout << "\nPress any key to continue..." << endl;
 	char input = _getch();
-	system("cls");
+	node* test = Tree->getListHead();
+	cout << "Das ist der Head " << test->keyValue;
+	cout << "\nPress any key to continue..." << endl;
+	input = _getch();
+	Tree->checkBalance(Tree->getListHead());
 
 	delete(Tree);
 }

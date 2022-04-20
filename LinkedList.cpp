@@ -126,5 +126,48 @@ node* LinkedList::createNode(int value) {
 }
 
 void LinkedList::checkBalance(node* knoten) {
-    //rekursiv checking of balance
+    //recursive checking of balance
+    int leftDepth = 0;
+    int rightDepth = 0;
+    int knotenValue = knoten->keyValue;
+    cout << knotenValue << endl;
+    node* leftCurrent = knoten->leftBranch;
+    node* rightCurrent = knoten->rightBranch;
+    if (leftCurrent != NULL) {
+        checkBalance(leftCurrent);
+    }
+    if (rightCurrent != NULL) {
+        checkBalance(rightCurrent);
+    }
+
+    if (leftCurrent != NULL) {
+        checkChild(leftCurrent, leftDepth);
+    }
+    if (rightCurrent != NULL) {
+        checkChild(rightCurrent, rightDepth);
+    }
+    int diff = rightDepth - leftDepth;
+    if (diff <= 1 && diff >= -1) {
+        cout << "Node " << knotenValue << " is AVL balanced! Balance value = " << diff << endl;
+    }
+    else {
+        cout << "Node " << knotenValue << " is NOT AVL balanced! Balance value = " << diff << endl;
+    }
+    return;
+}
+
+void LinkedList::checkChild(node* knoten, int& topDepth) {
+    node* leftCurrent = knoten->leftBranch;
+    node* rightCurrent = knoten->rightBranch;
+    ++topDepth;
+    if (leftCurrent != NULL && rightCurrent != NULL){
+        --topDepth;
+    }
+    if (leftCurrent != NULL) {
+        checkChild(leftCurrent, topDepth);
+    }
+    if (rightCurrent != NULL) {
+        checkChild(rightCurrent, topDepth);
+    }
+    return;
 }
