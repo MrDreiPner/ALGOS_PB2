@@ -20,7 +20,9 @@ int main(int argc, char* argv[])
 	cout << "\nPress any key to continue..." << endl;
 	char input = _getch();
 	system("cls");
-	Tree->checkBalance(Tree->getListHead());
+	if (argc == 2) {
+		Tree->checkBalance(Tree->getListHead());
+	}
 	if (argc > 2) {
 		LinkedList* subtree = new LinkedList(argv[2]);
 		Tree->subtreeSearch(subtree->getListHead(), Tree->getListHead());

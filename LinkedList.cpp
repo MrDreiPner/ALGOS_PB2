@@ -25,16 +25,14 @@ LinkedList::LinkedList(char* passedFileName) {
                 //saving head in class object
     listHead = head;
                 //appending rest of file in tree
-    while (file >> value)
-    {
+    while (file >> value) {
         append(head, value);
     }
     file.close();
-
 }
 
 LinkedList::~LinkedList() {
-    std::cout << "Tree deleted";
+    std::cout << "Tree deleted\n";
 }
 
 node* LinkedList::append(struct node* head, int value) {
@@ -87,35 +85,6 @@ node* LinkedList::append(struct node* head, int value) {
         }
     }
 }
-
-/*void LinkedList::print() {
-    system("cls");
-    node* current = listHead;
-    node* prevNode = NULL;
-    int left = 0;
-    int right = 0;
-    while (current != NULL) {
-        ++left;
-        std::cout << "Left Branch: " << left << " | Value: " << current->keyValue << endl;
-        if (current->leftBranch == nullptr) {
-            std::cout << "End of left branch reached at depth: " << left << endl;
-            current = prevNode->rightBranch;
-        }
-        prevNode = current;
-        current = current->leftBranch;
-    }
-    current = listHead;
-    while (current != NULL) {
-        ++right;
-        std::cout << "Right Branch: " << right << " | Value: " << current->keyValue << endl;
-        if (current->rightBranch == nullptr) {
-            std::cout << "End of right branch reached at depth: " << right << endl;
-            current = prevNode->leftBranch;
-        }
-        prevNode = current;
-        current = current->rightBranch;
-    }
-}*/
 
 node* LinkedList::createNode(int value) {
     node* newNode = new node;
@@ -172,14 +141,6 @@ void LinkedList::checkChild(node* knoten, int& topDepth) {
     return;
 }
 
-void LinkedList::traverseInOrder(node* current) {
-    if (current != NULL) {
-        traverseInOrder(current->leftBranch);
-        //visit(current);
-        traverseInOrder(current->rightBranch);
-    }
-}
-
 void LinkedList::singleNodeSearch(node* subtree, node* current){
     node* sub = subtree;
     if (sub->leftBranch != NULL || sub->rightBranch != NULL) {
@@ -215,10 +176,6 @@ void LinkedList::subtreeSearch(node* subtree, node* current) {
             sub->keyValue < newRoot->keyValue ? newRoot = newRoot->leftBranch : newRoot = newRoot->rightBranch;
         }
         else if (checkNode(newRoot, sub) == true) { break; }
-        /*else {
-            cout << "Subtree not found!" << endl;
-            return;
-        }*/
     }
     if (newRoot == NULL) {
         cout << "Subtree not found!" << endl;
@@ -235,7 +192,6 @@ void LinkedList::subtreeSearch(node* subtree, node* current) {
     }
 }
 
-    
     void LinkedList::traverse(int num, node* current){
     if (current != NULL) {
         cout << current->keyValue << " ";
