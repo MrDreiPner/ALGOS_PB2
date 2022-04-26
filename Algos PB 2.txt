@@ -1,0 +1,33 @@
+AVL Tree
+insert:
+	worst case O(log n)
+	avg case O(log n)
+	best case O(1) Wurzel einfügen, sonst wäre O(log n)
+
+search: 
+	worst case O(log n)
+	avg case O(log n)
+	best case O(1) Wurzel suchen, sonst wäre O(log n)
+
+Non AVL Tree
+insert:
+	worst case O(n)
+	avg case O(log n)
+	best case O(1) Wurzel einfügen, sonst wäre O(log n)
+search:
+	worst case O(n)
+	avg case O(log n)
+	best case O(1) Wurzel suchen, sonst wäre O(log n)
+
+
+Suche:
+	Bei Suche nach einem einzelnen Wert wird der Tree zuerst an der Wurzel gecheckt.
+ 	Falls der gesuchte Wert kleiner ist, wird nach links traversiert, andernfalls nach rechts. 
+	Danach wird die Funktion rekursiv aufgerufen bis der Wert gefunden wurde oder alle Nodes gecheckt wurden.
+
+	Bei Suche nach einem Subtree wird gleich wie bei einem Single Node gesucht.
+	wenn die Wurzel des Subtrees gefunden wurde, wird, falls vorhanden, der linke Ast, sonst der rechte Ast 
+	auf die selbe Art gesucht. 
+
+Insert:
+	
