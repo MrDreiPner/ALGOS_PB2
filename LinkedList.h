@@ -16,7 +16,7 @@ public:
 	virtual ~LinkedList();
 	node* append(struct node* head, int value);
 	node* createNode(int value);
-	void checkBalance(node* knoten);
+	void checkBalance(node* knoten, double& sum, int& max, int& min, double& count, int& avlCheck);
 	void checkChild(node* knoten, int& topDepth);
 	void singleNodeSearch(node* subtree, node* current);
 	bool checkNode(node* prime, node* sub);

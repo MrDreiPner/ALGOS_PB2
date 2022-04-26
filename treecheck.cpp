@@ -20,8 +20,11 @@ int main(int argc, char* argv[])
 	cout << "\nPress any key to continue..." << endl;
 	char input = _getch();
 	system("cls");
+	int max = 0; int min = 0; double sum = 0; double count = 0; int avlCheck = 0;
 	if (argc == 2) {
-		Tree->checkBalance(Tree->getListHead());
+		Tree->checkBalance(Tree->getListHead(), sum, max, min, count, avlCheck);
+		avlCheck == 0 ? cout << "AVL: yes" : cout << "AVL: no";
+		cout << "\nmin: " << min << ", max: " << max << ", avg: " << sum / count << endl;
 	}
 	if (argc > 2) {
 		LinkedList* subtree = new LinkedList(argv[2]);

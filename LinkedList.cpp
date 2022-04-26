@@ -94,19 +94,24 @@ node* LinkedList::createNode(int value) {
     return newNode;
 }
 
-void LinkedList::checkBalance(node* knoten) {
+void LinkedList::checkBalance(node* knoten, double& sum, int& max, int& min, double& count, int& avlCheck) {
     //recursive checking of balance
     int leftDepth = 0;
     int rightDepth = 0;
     int knotenValue = knoten->keyValue;
-    cout << "Node " << knotenValue << " is getting checked." << endl;
+    if (knotenValue < min || min == 0)
+        min = knotenValue;
+    if (knotenValue > max)
+        max = knotenValue;
+    count++;
+    sum += knotenValue;
     node* leftCurrent = knoten->leftBranch;
     node* rightCurrent = knoten->rightBranch;
     if (leftCurrent != NULL) {
-        checkBalance(leftCurrent);
+        checkBalance(leftCurrent, sum, max, min, count, avlCheck);
     }
     if (rightCurrent != NULL) {
-        checkBalance(rightCurrent);
+        checkBalance(rightCurrent, sum, max, min, count, avlCheck);
     }
 
     if (leftCurrent != NULL) {
@@ -117,10 +122,11 @@ void LinkedList::checkBalance(node* knoten) {
     }
     int diff = rightDepth - leftDepth;
     if (diff <= 1 && diff >= -1) {
-        cout << "Node " << knotenValue << " is AVL balanced... as all things should be. Balance value = " << diff << endl;
+        cout << "Bal(" << knotenValue << ") = " << diff << endl;
     }
     else {
-        cout << "Node " << knotenValue << " is NOT AVL balanced! Balance value = " << diff << endl;
+        cout << "Bal(" << knotenValue << ") = " << diff << " (AVL violation!)" << endl;
+        avlCheck++;
     }
     return;
 }

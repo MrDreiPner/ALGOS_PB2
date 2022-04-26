@@ -30,4 +30,12 @@ Suche:
 	auf die selbe Art gesucht. 
 
 Insert:
-	
+	Die Werte werden pro Zeile eingelesen, kleinere Werte im linken Branch, größere im rechten.
+	Falls ein Wert eingelesen wird der im Tree bereits vorkommt, wird dieser verworfen.
+	Der Pfad beim einfügen wird ausgegeben aus Repräsentationszwecken.
+
+AVL Check:
+	Die checkBalance Funktion prüft ob die branch pointer NULL sind und ruft im Fall, dass sie es nicht sind rekursiv die checkBalance Funktion auf.
+	Hierbei werden erneut zuerst die Linken und dann die rechten Branches geprüft.
+	Nach dem rekursiven Aufruf wird die Tiefe für den aktuellen Node geprüft, hierfür wird rekursiv die checkChild funktion mit einem reference integer aufgerufen,
+	welcher die rechte und linke tiefe prüft (sollte ein Node links UND rechts children haben, wird 1 von der jeweiligen Tiefe subtrahiert um eine doppelte addition der Tiefe in einer Branch zu verhindern).
