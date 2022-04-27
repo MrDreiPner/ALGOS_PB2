@@ -32,7 +32,7 @@ LinkedList::LinkedList(char* passedFileName) {
 }
 
 LinkedList::~LinkedList() {
-    std::cout << "Tree deleted\n";
+    //std::cout << "Tree deleted\n";
 }
 
 node* LinkedList::append(struct node* head, int value) {
@@ -166,7 +166,7 @@ void LinkedList::singleNodeSearch(node* subtree, node* current){
             return;
         }
     }
-    else { cout << sub->keyValue << " not found!" << endl; }
+    else { cout << sub->keyValue << " not found!\n" << endl; }
 }
 
 bool LinkedList::checkNode(node* prime, node* sub){
@@ -186,7 +186,7 @@ void LinkedList::subtreeSearch(node* subtree, node* current) {
         else if (checkNode(newRoot, sub) == true) { break; }
     }
     if (newRoot == NULL) {
-        cout << "Subtree not found!" << endl;
+        cout << "Subtree not found!\n" << endl;
         return;
     }
     if (sub->leftBranch != NULL && newRoot->leftBranch != NULL) {
@@ -196,7 +196,7 @@ void LinkedList::subtreeSearch(node* subtree, node* current) {
         subtreeSearch(sub->rightBranch, newRoot->rightBranch);
     }
     else {
-        cout << "Subtree found" << endl;
+        cout << "Subtree found!\n" << endl;
     }
 }
 

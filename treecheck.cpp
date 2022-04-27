@@ -17,9 +17,6 @@ int main(int argc, char* argv[])
 		cout << argv[i] << "\n";
 				//Creation of tree
 	LinkedList* Tree = new LinkedList(argv[1]);
-	cout << "\nPress any key to continue..." << endl;
-	char input = _getch();
-	system("cls");
 	int max = 0; int min = 0; double sum = 0; double count = 0; int avlCheck = 0;
 	if (argc == 2) {
 		Tree->checkBalance(Tree->getListHead(), sum, max, min, count, avlCheck);
@@ -34,6 +31,6 @@ int main(int argc, char* argv[])
 	}
 	delete(Tree);
 	cout << "\nPress any key to terminate program" << endl;
-	input = _getch();
+	char input = _getch();
 	system("cls");
 }
