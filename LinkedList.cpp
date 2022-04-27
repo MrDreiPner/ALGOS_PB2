@@ -95,7 +95,7 @@ node* LinkedList::createNode(int value) {
 }
 
 void LinkedList::checkBalance(node* knoten, double& sum, int& max, int& min, double& count, int& avlCheck) {
-    //recursive checking of balance
+            //recursive checking of balance
     int leftDepth = 0;
     int rightDepth = 0;
     int knotenValue = knoten->keyValue;
@@ -107,13 +107,14 @@ void LinkedList::checkBalance(node* knoten, double& sum, int& max, int& min, dou
     sum += knotenValue;
     node* leftCurrent = knoten->leftBranch;
     node* rightCurrent = knoten->rightBranch;
+            //at first we recursively call the child nodes of this node, if both child nodes are NULL or the function calls wrap up -> we continue
     if (leftCurrent != NULL) {
         checkBalance(leftCurrent, sum, max, min, count, avlCheck);
     }
     if (rightCurrent != NULL) {
         checkBalance(rightCurrent, sum, max, min, count, avlCheck);
     }
-
+            //all child nodes of the current node get checked and return their depth
     if (leftCurrent != NULL) {
         checkChild(leftCurrent, leftDepth);
     }
@@ -135,6 +136,7 @@ void LinkedList::checkChild(node* knoten, int& topDepth) {
     node* leftCurrent = knoten->leftBranch;
     node* rightCurrent = knoten->rightBranch;
     ++topDepth;
+            //in case both child nodes are not NULL we need to subtract 1, so we dont add double the depth to the overall branch depth
     if (leftCurrent != NULL && rightCurrent != NULL){
         --topDepth;
     }

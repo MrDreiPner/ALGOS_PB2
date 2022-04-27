@@ -1,8 +1,8 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: The intermediate directory (x64\Release\) contains files shared from another project (ALGOS_PB2.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   treecheck.cpp
   Generating code
-  1 of 546 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+  3 of 546 functions ( 0.5%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    4 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  ALGOS_PB2.vcxproj -> C:\Users\Matus\Documents\VS_Code\ALGOS_PB2\x64\Release\treecheck.exe
+  ALGOS_PB2.vcxproj -> C:\Users\porub\OneDrive\Dokumente\Visual Studio 2022\ALGOS_PB2\x64\Release\treecheck.exe

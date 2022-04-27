@@ -33,4 +33,7 @@ int main(int argc, char* argv[])
 		delete(subtree);
 	}
 	delete(Tree);
+	cout << "\nPress any key to terminate program" << endl;
+	input = _getch();
+	system("cls");
 }
