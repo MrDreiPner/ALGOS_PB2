@@ -176,7 +176,7 @@ bool LinkedList::checkNode(node* prime, node* sub){
     return false;
 }
 
-void LinkedList::subtreeSearch(node* subtree, node* current) {
+void LinkedList::subtreeSearch(node* subtree, node* current, int& fail) {
     node* sub = subtree;
     node* newRoot = current;
     while (newRoot != NULL) {
@@ -185,19 +185,19 @@ void LinkedList::subtreeSearch(node* subtree, node* current) {
         }
         else if (checkNode(newRoot, sub) == true) { break; }
     }
-    if (newRoot == NULL) {
-        cout << "Subtree not found!\n" << endl;
+    if (newRoot == NULL && sub != NULL) {
+        fail++;
         return;
     }
-    if (sub->leftBranch != NULL && newRoot->leftBranch != NULL) {
-        subtreeSearch(sub->leftBranch, newRoot->leftBranch);
+    if (newRoot != NULL && sub != NULL) {
+        if (sub->leftBranch != NULL) {
+            subtreeSearch(sub->leftBranch, newRoot->leftBranch, fail);
+        }
+        if (sub->rightBranch != NULL) {
+            subtreeSearch(sub->rightBranch, newRoot->rightBranch, fail);
+        }
     }
-    else if (sub->rightBranch != NULL && newRoot->rightBranch != NULL) {
-        subtreeSearch(sub->rightBranch, newRoot->rightBranch);
-    }
-    else {
-        cout << "Subtree found!\n" << endl;
-    }
+
 }
 
     void LinkedList::traverse(int num, node* current){

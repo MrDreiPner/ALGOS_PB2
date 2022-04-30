@@ -23,10 +23,15 @@ int main(int argc, char* argv[])
 		avlCheck == 0 ? cout << "AVL: yes" : cout << "AVL: no";
 		cout << "\nmin: " << min << ", max: " << max << ", avg: " << sum / count << endl;
 	}
+	int treeFound = 0;
 	if (argc > 2) {
 		LinkedList* subtree = new LinkedList(argv[2]);
-		Tree->subtreeSearch(subtree->getListHead(), Tree->getListHead());
+		Tree->subtreeSearch(subtree->getListHead(), Tree->getListHead(), treeFound);
 		Tree->singleNodeSearch(subtree->getListHead(), Tree->getListHead());
+		if (treeFound == 0)
+			cout << "Subtree found!" << endl;
+		else
+			cout << "Subtree NOT found!" << endl;
 		delete(subtree);
 	}
 	delete(Tree);
