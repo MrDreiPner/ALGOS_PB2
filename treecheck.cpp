@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
 		avlCheck == 0 ? cout << "AVL: yes" : cout << "AVL: no";
 		cout << "\nmin: " << min << ", max: " << max << ", avg: " << sum / count << endl;
 	}
-	if (argc > 2) {
+	if (argc == 3) {
 		LinkedList* subtree = new LinkedList(argv[2]);
 		Tree->subtreeSearch(subtree->getListHead(), Tree->getListHead());
 		Tree->singleNodeSearch(subtree->getListHead(), Tree->getListHead());
