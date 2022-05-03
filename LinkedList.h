@@ -20,7 +20,7 @@ public:
 	void checkChild(node* knoten, int& topDepth);
 	void singleNodeSearch(node* subtree, node* current);
 	bool checkNode(node* prime, node* sub);
-	void subtreeSearch(node* subtree, node* current);
+	void subtreeSearch(node* subtree, node* current, int& fail);
 	void traverse(int keyValue, node* current);
 	node* getListHead() { return listHead; };
 
